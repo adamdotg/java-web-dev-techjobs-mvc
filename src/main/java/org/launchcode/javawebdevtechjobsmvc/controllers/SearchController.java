@@ -32,11 +32,11 @@ public class SearchController {
         if (searchType.toLowerCase().equals("all") && searchTerm.isEmpty()){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
-        } else if (searchType.toLowerCase().equals("all") && searchTerm.toLowerCase().equals("all")){
+        } else if (searchType.toLowerCase().equals("all") && searchTerm.toLowerCase().trim().equals("all")){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
-            jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+            jobs = JobData.findByColumnAndValue(searchType, searchTerm.trim());
             model.addAttribute("title", "Jobs with " + columnChoices.get(searchType) + ": " + searchTerm);
         }
         model.addAttribute("jobs", jobs);
