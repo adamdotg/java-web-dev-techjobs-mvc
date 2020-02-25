@@ -25,14 +25,12 @@ public class SearchController {
 
     // TODO #3 - Create a handler to process a search request and render the updated search view.
 
-    //@PostMapping(value="")
-    public String displaySearchResults(Model model, String entry){
-        //pass in search term
+    //@RequestMapping(value="")
+    public String displaySearchResults(Model model, @RequestParam String column, @RequestParam String value){
+        //pass in search terms, column and value
         //to lower case and compare
-        //call some method in JobData
+        //call some methods, one of two options, in JobData depending on column and value
         //model.addAttribute title and value
-        //look up PostMapping annotation
-
         return "list-jobs";
     }
 }
